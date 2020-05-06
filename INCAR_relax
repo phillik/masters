@@ -1,0 +1,38 @@
+# general
+System = Li7La3Zr2O12
+#ISTART = 0    # 0 scratch init orbitals according to INIWAV,   1 restart with constant energy kutoff, continuation, reads orbitals from WAVECAR,   2 restart with constant basis set, continuation job, reads orbitals from WAVECAR
+#ICHARG = 11   # 2 if ISTART = 0, superpos of atomic charge densities,   0 calculate charge density from initial orbitals, creates CHGCAR,   +10 keeps charge density constant,   11 obtains eigenvalues for DOS and bands from CHGCAR from SC calculation,   12 non-SC
+LMAXMIX = 4   # if ICHARG = {11,12}, 2 for s and p, 4 for 2 and 6 for f
+#INIWAV = 1   # use only for ISTART = 0, specifies setup of initial orbitals. 1 is default, 0 jellium
+ISMEAR = 0   # -5 tetrahedron with Blochl correction,   -2 partial occupancies read from WAVECAR,   0 Gaussian smearing,   -1 Fermi smearing
+SIGMA = 0.01
+EDIFF = 1.0e-06
+EDIFFG = -0.01
+PREC = N
+LREAL = .FALSE.   # false projection in reciprocal space,   real projection done in real space
+LCHARG = .FALSE.   # writes CHGCAR and CHG
+LWAVE = .FALSE.   # writes WAVECAR
+#NPAR = 4
+NCORE = 16
+GGA = PS
+
+# cutoff
+ENCUT = 600
+
+# relaxation
+ISIF = 3   # 3 full relaxation cell and ions,   7 relax volume, not ions
+
+# ionic steps and dynamics
+IBRION = 2   # -1 no update, NSW = 0,   0 std MD,   2 CG algorithm for relaxing ions
+NSW = 20   # sets maximum number of ionic steps, Hellmann-Feynman forces calculated for each step
+
+# electronic steps
+NELM = 60   # max # electronic SC steps
+NELMIN = 4   # min # electronic SC steps
+
+# DOS
+#LORBIT = 12   # 10 DOSCAR and PROCAR files,   11 DOSCAR and lm decomposed PROCAR file,   12 DOSCAR and lm decomposed PROCAR file = phase factors
+#EMIN = -10
+#EMAX = 10
+#NEDOS = 401   # DOS resolution, divide by energy range, n+1 for tick spacing when plotting
+#NBANDS = 312   # number of bands, must include unoccupied bands, preferably several
